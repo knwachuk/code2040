@@ -60,8 +60,7 @@ def prefix() -> None:
                       json=payload)
     print(r.status_code, r.reason)
 
-def dating_game():
-    
+
 def dating_game() -> None:
     """dating_game function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/dating",
@@ -72,7 +71,7 @@ def dating_game() -> None:
     iso_8601_datestamp = '%Y-%m-%dT%H:%M:%SZ'
     time = datetime.datetime.strptime(dating['datestamp'], iso_8601_datestamp)
     new_time = time + datetime.timedelta(seconds=dating['interval'])
-    
+
     # Verifying output
     # print dating['datestamp'], new_time.strftime(iso_8601_datestamp), dating['interval']
     # print time, datetime.timedelta(seconds=dating['interval']), new_time
@@ -83,7 +82,7 @@ def dating_game() -> None:
                       json=payload)
     print(r.status_code, r.reason)
 
-    
+
 def main():
 
     # Current position in the application process

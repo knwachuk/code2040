@@ -5,6 +5,7 @@ import datetime
 
 from settings import token, github_url
 
+
 def registration(github: str) -> None:
     """Registration function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/register",
@@ -18,7 +19,7 @@ def reverse_str() -> None:
                       data={'token': token})
 
     # Making sure it is a string
-    if (isinstance(r.text, basestring)):
+    if (type(r.text) is str):
         reverse_str = str(r.text[::-1])
 
     r = requests.post("http://challenge.code2040.org/api/reverse/validate",

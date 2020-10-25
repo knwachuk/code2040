@@ -5,16 +5,12 @@ import datetime
 
 token = '24d2eed680663fd4ac466f9483466faf'
 
-def registration():
-
-    github = 'https://github.com/knwachuk/code2040'
-
+    """Registration function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/register",
                       data={'token': token, 'github': github})
-    print r.status_code, r.reason
 
-def reverse_str():
-    
+
+    """reverse_str function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/reverse",
                       data={'token': token})
 
@@ -26,8 +22,8 @@ def reverse_str():
                       data={'token': token, 'string': reverse_str})
     print r.status_code, r.reason
 
-def needle_haystack():
 
+    """needle_haystack function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/haystack",
                       data={'token': token})
 
@@ -41,25 +37,26 @@ def needle_haystack():
 
     r = requests.post("http://challenge.code2040.org/api/haystack/validate",
                       data={'token': token, 'needle': needle_index})
-    print r.status_code, r.reason
 
-def prefix():
 
+    """prefix function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/prefix",
                       data={'token': token})
 
     words = r.json()
     len_pref = len(words['prefix'])
 
-    non_prefixed = [str(word) for word in words['array'] if word[0:len_pref] != words['prefix']]
+    non_prefixed = [str(word) for word in words['array']
+                    if word[0:len_pref] != words['prefix']]
 
     payload = {'token': token, 'array': non_prefixed}
     r = requests.post("http://challenge.code2040.org/api/prefix/validate",
                       json=payload)
-    print r.status_code, r.reason
+
 
 def dating_game():
     
+    """dating_game function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/dating",
                       data={'token': token})
 
@@ -77,7 +74,7 @@ def dating_game():
                'datestamp': new_time.strftime(iso_8601_datestamp)}
     r = requests.post("http://challenge.code2040.org/api/dating/validate",
                       json=payload)
-    print r.status_code, r.reason
+
     
 def main():
 
@@ -98,6 +95,7 @@ def main():
 
     else:
         dating_game()
+
 
 if __name__ == '__main__':
     main()

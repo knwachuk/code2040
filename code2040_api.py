@@ -8,6 +8,7 @@ token = '24d2eed680663fd4ac466f9483466faf'
     """Registration function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/register",
                       data={'token': token, 'github': github})
+    print(r.status_code, r.reason)
 
 
     """reverse_str function for Code2040."""
@@ -20,7 +21,7 @@ token = '24d2eed680663fd4ac466f9483466faf'
 
     r = requests.post("http://challenge.code2040.org/api/reverse/validate",
                       data={'token': token, 'string': reverse_str})
-    print r.status_code, r.reason
+    print(r.status_code, r.reason)
 
 
     """needle_haystack function for Code2040."""
@@ -37,6 +38,7 @@ token = '24d2eed680663fd4ac466f9483466faf'
 
     r = requests.post("http://challenge.code2040.org/api/haystack/validate",
                       data={'token': token, 'needle': needle_index})
+    print(r.status_code, r.reason)
 
 
     """prefix function for Code2040."""
@@ -52,7 +54,7 @@ token = '24d2eed680663fd4ac466f9483466faf'
     payload = {'token': token, 'array': non_prefixed}
     r = requests.post("http://challenge.code2040.org/api/prefix/validate",
                       json=payload)
-
+    print(r.status_code, r.reason)
 
 def dating_game():
     
@@ -74,6 +76,7 @@ def dating_game():
                'datestamp': new_time.strftime(iso_8601_datestamp)}
     r = requests.post("http://challenge.code2040.org/api/dating/validate",
                       json=payload)
+    print(r.status_code, r.reason)
 
     
 def main():

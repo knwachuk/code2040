@@ -18,8 +18,7 @@ def reverse_str() -> None:
     r = requests.post("http://challenge.code2040.org/api/reverse",
                       data={'token': token})
 
-    # Making sure it is a string
-    if (type(r.text) is str):
+    if (type(r.text) is str):       # Making sure it is a string
         reverse_str = str(r.text[::-1])
 
     r = requests.post("http://challenge.code2040.org/api/reverse/validate",
@@ -32,8 +31,7 @@ def needle_haystack() -> None:
     r = requests.post("http://challenge.code2040.org/api/haystack",
                       data={'token': token})
 
-    # Finding needle in haystack! :)
-    haystack = r.json()
+    haystack = r.json()             # Finding needle in haystack! :)
 
     # for key in haystack.keys(): # Not NEEDED! Already know the names of the keys
     # Also note that API expects indexes to start counting at 0

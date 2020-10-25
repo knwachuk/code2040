@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
-import requests
 import datetime
 
-from settings import token, github_url
+import requests
+
+from settings import github_url, token
 
 
 def registration(github: str) -> None:

@@ -3,14 +3,16 @@
 import requests
 import datetime
 
-token = '24d2eed680663fd4ac466f9483466faf'
+from settings import token, github_url
 
+def registration(github: str) -> None:
     """Registration function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/register",
                       data={'token': token, 'github': github})
     print(r.status_code, r.reason)
 
 
+def reverse_str() -> None:
     """reverse_str function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/reverse",
                       data={'token': token})
@@ -24,6 +26,7 @@ token = '24d2eed680663fd4ac466f9483466faf'
     print(r.status_code, r.reason)
 
 
+def needle_haystack() -> None:
     """needle_haystack function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/haystack",
                       data={'token': token})
@@ -41,6 +44,7 @@ token = '24d2eed680663fd4ac466f9483466faf'
     print(r.status_code, r.reason)
 
 
+def prefix() -> None:
     """prefix function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/prefix",
                       data={'token': token})
@@ -58,6 +62,7 @@ token = '24d2eed680663fd4ac466f9483466faf'
 
 def dating_game():
     
+def dating_game() -> None:
     """dating_game function for Code2040."""
     r = requests.post("http://challenge.code2040.org/api/dating",
                       data={'token': token})
@@ -85,7 +90,7 @@ def main():
     step_position = 5
 
     if (step_position == 1):
-        registration()
+        registration(github_url)
 
     elif (step_position == 2):
         reverse_str()
